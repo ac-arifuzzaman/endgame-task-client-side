@@ -5,11 +5,9 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

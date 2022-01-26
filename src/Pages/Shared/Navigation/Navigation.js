@@ -11,11 +11,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
-  const pages = ["Products", "Pricing", "Blog"];
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -34,7 +32,7 @@ const Navigation = () => {
     setAnchorElUser(null);
   };
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#434c55fc" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -43,7 +41,7 @@ const Navigation = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            LOGO
+            Traveler
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -75,11 +73,42 @@ const Navigation = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink
+                  to="/home"
+                  style={{
+                    color: "black",
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Home
+                </NavLink>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink
+                  to="/tour"
+                  style={{
+                    color: "black",
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Tour
+                </NavLink>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <NavLink
+                  to="/destination"
+                  style={{
+                    color: "black",
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Destination
+                </NavLink>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -88,18 +117,61 @@ const Navigation = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            LOGO
+            Traveler
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", justifyContent: "center" },
+            }}
+          >
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              <NavLink
+                to="/home"
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                  textTransform: "capitalize",
+                }}
               >
-                {page}
-              </Button>
-            ))}
+                Home
+              </NavLink>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                textTransform: "capitalize",
+              }}
+            >
+              <NavLink
+                to="/tour"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Tour
+              </NavLink>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                textTransform: "capitalize",
+              }}
+            >
+              <NavLink
+                to="/destination"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Destination
+              </NavLink>
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -124,11 +196,42 @@ const Navigation = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseUserMenu}>
+                <NavLink
+                  to="/"
+                  style={{
+                    color: "black",
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Profile
+                </NavLink>
+              </MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}>
+                <NavLink
+                  to="/login"
+                  style={{
+                    color: "black",
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Login
+                </NavLink>
+              </MenuItem>
+              <MenuItem onClick={handleCloseUserMenu}>
+                <NavLink
+                  to="/register"
+                  style={{
+                    color: "black",
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Register
+                </NavLink>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
